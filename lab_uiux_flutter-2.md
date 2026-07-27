@@ -1008,25 +1008,25 @@ IconButton(
 **ข้อ 1:** Material 3 ต่างจาก Material 2 อย่างไรในด้าน Color System? 
 
 ```
-คำตอบ: _______________________________________________
+คำตอบ:Material 3 เปลี่ยนมาใช้ระบบ Dynamic Color และ Tonal Palettes โดยสร้างชุดสีแบบอัตโนมัติจากสีหลัก (Seed Color) ผ่าน ColorScheme และเน้นใช้คู่สีลบ-บวกความสว่างที่เข้าคู่กันโดยเฉพาะ (เช่น primary คู่กับ onPrimary หรือ primaryContainer คู่กับ onPrimaryContainer) เพื่อรองรับการเปลี่ยน Light/Dark Mode และรักษา Contrast ตามหลัก Accessibility ได้ดีกว่า Material 2 ที่เน้นใช้สีแบบ Primary/Secondary แบบคงที่
 ```
 
 **ข้อ 2:** เมื่อแปลง Figma Design เป็น Flutter Widget พบปัญหาอะไรบ้าง และแก้ไขอย่างไร?
 
 ```
-คำตอบ: _______________________________________________
+คำตอบ: พบปัญหาเรื่องระยะ Spacing (Padding/Margin) ที่ไม่ตรงกับ Figma, โครงสร้าง Layout ที่ซ้อนกันเกินความจำเป็น (Deep Hierarchy), และปัญหาการ์ดสินค้าคลิกไม่ได้ แก้ไขโดยการใช้ Inspector ช่วยตรวจสอบขนาดจริง, ใช้ InkWell/GestureDetector ห่อหุ้ม Widget เพื่อรองรับการกด (Tap Effect), และปรับการดึงค่าสีมาใช้ผ่าน Theme.of(context).colorScheme แทนการใส่ค่าสีแบบ Hardcoded
 ```
 
 **ข้อ 3:** Code ที่ AI สร้างให้นั้นสมบูรณ์แค่ไหน? ต้องปรับปรุงอะไรบ้าง?
 
 ```
-คำตอบ: _______________________________________________
+คำตอบ: Code ที่ AI สร้างมีความสมบูรณ์ในแง่ของ UI Layout และการเลือกใช้ Material 3 Widgets ได้ถูกต้องตามภาพร่างประมาณ 80-90% แต่สิ่งที่ต้องปรับปรุงคือ AI มักเขียนโค้ดรวมไว้ในไฟล์เดียว (Single File) และไม่มีคำสั่งการทำงานจริง (Action Callbacks/State Management) จึงต้องทำการ refactor แยกไฟล์เป็นโครงสร้างโปรเจกต์ (Clean Architecture) และเพิ่ม Callback เช่น onPressed/onTap เพื่อให้เรียกใช้งานได้จริง
 ```
 
 **ข้อ 4:** ถ้าจะนำ UI ที่ออกแบบไปใช้กับ Project จริง จะปรับปรุงอะไรบ้าง?
 
 ```
-คำตอบ: _______________________________________________
+คำตอบ:จะปรับปรุงโดยการเชื่อมต่อระบบ State Management (เช่น Provider, Riverpod, หรือ BLoC) เพื่อจัดการข้อมูลจริงจาก API, เพิ่มการ handle สถานะ Loading, Error และ Empty State, ทำการจัดการความปลอดภัยของข้อมูลรูปภาพ (Fallback Image), เพิ่มการทำ Localization รองรับหลายภาษา และเพิ่ม Animations/Transitions เพื่อให้การใช้งานดูลื่นไหลและน่าใช้ยิ่งขึ้น
 ```
 
 ---
