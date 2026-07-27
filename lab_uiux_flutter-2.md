@@ -924,10 +924,10 @@ Add brief comments explaining each section.
 
 | คำถาม | คำตอบ |
 |-------|-------|
-| AI ใช้ Widget อะไรสร้าง Avatar? | _________________ |
-| AI handle กรณี avatarUrl เป็น null อย่างไร? | _________________ |
-| AI ใช้ color จาก Theme หรือ hardcode? | _________________ |
-| มีส่วนไหนที่ควรปรับปรุง? | _________________ |
+| AI ใช้ Widget อะไรสร้าง Avatar? | CircleAvatar |
+| AI handle กรณี avatarUrl เป็น null อย่างไร? | เช็กเงื่อนไขถ้าเป็น null จะแสดงตัวอักษรแรกของชื่อ (Initials) ผ่าน child: Text() แทน |
+| AI ใช้ color จาก Theme หรือ hardcode? | ใช้จาก Theme ทั้งหมดผ่าน Theme.of(context).colorScheme |
+| มีส่วนไหนที่ควรปรับปรุง? | เพิ่ม onPressed callback ให้ปุ่ม และใส่ errorBuilder สำหรับรูปภาพ |
 
 **ขั้นตอนที่ 4.4: นำ Code ไปใช้ใน Project**
 
@@ -950,10 +950,10 @@ Add brief comments explaining each section.
    ```
 5. ดู Code และ Widget Tree ที่ได้ และเปรียบเทียบกับ  Code และ Widget tree ที่เขียนเองในการทดลองที่ 3
    
-```text
-เขียนผลการเปรียบเทียบที่นี่
+    - ด้าน Widget Tree Structure: โค้ดที่สร้างจาก AI (Multimodal) และโค้ดที่เขียนเอง มีโครงสร้างหลักคล้ายกันโดยใช้ Scaffold, AppBar, ListView.builder และ Card เป็นส่วนประกอบสำคัญ
+    - ความแม่นยำของ Material 3: AI สามารถวิเคราะห์ประเภทของคอมโพเนนต์จากรูปภาพได้อย่างแม่นยำ เช่น การเลือกใช้ NavigationBar แทน BottomNavigationBar แบบเดิม และเลือกใช้ ColorScheme (เช่น colorScheme.primaryContainer, onSurfaceVariant) ตรงตามมาตรฐาน Material Design 3
+    - ข้อแตกต่าง: โค้ดจาก AI จะเน้นการสร้าง UI ให้ตรงกับภาพที่เห็นโดยตรงในไฟล์เดียว ในขณะที่โค้ดที่เขียนเองมีการจัดวางสัดส่วน Padding/Spacing และแยกโครงสร้างไฟล์ (Clean Code Architecture) ให้เหมาะกับการนำไปพัฒนาต่อในระดับโปรเจกต์ได้ดีกว่า
 
-```
 ---
 
 ### การทดลองที่ 5: Dark Mode และ Accessibility Check 
